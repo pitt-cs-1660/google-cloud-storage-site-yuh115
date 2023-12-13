@@ -17,16 +17,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: true  # Fetches Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetches all history for .GitInfo and .Lastmod
+          fetch-depth: 0    # Fetches all history for files
 
-      - name: Set up Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.121.1'  # Replace with the version of Hugo you want to use
+      # - name: Set up Hugo
+      #   uses: peaceiris/actions-hugo@v2
+      #   with:
+      #     hugo-version: '0.121.1'  # Replace with the version of Hugo you want to use
 
-      - name: Build
-        run: hugo --minify  # Builds your static site with Hugo
+      # - name: Build
+      #   run: hugo --minify  # Builds your static site with Hugo
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v1
@@ -37,7 +36,8 @@ jobs:
       - name: Upload to Google Cloud Storage
         uses: google-github-actions/upload-cloud-storage@v1
         with:
-          path: '/home/runner/work/google-cloud-storage-site-yuh115/google-cloud-storage-site-yuh115'  # The path in your repository to upload from
+          # path: '/home/runner/work/google-cloud-storage-site-yuh115/google-cloud-storage-site-yuh115'  # The path in your repository to upload from
+          path: '.'
           destination: 'cs1660final'  # The destination bucket and optional path to upload to
           parent: false  # If set to true, the source directory structure will be preserved
 
