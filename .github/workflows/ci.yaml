@@ -36,7 +36,8 @@ jobs:
       - name: Upload to Google Cloud Storage
         uses: google-github-actions/upload-cloud-storage@v1
         with:
-          # path: '/home/runner/work/google-cloud-storage-site-yuh115/google-cloud-storage-site-yuh115'  # The path in your repository to upload from
+          # path: '/home/runner/work/google-cloud-storage-site-yuh115/google-cloud-storage-site-yuh115'  
+          # The path in your repository to upload from
           path: '.'
           destination: 'cs1660final'  # The destination bucket and optional path to upload to
           parent: false  # If set to true, the source directory structure will be preserved
